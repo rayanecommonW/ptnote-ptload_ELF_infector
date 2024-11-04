@@ -2,10 +2,18 @@ section .data
     file_open_error_msg db "Error opening file", 0xA  ; Error message
     file_open_error_len equ $ - file_open_error_msg
 
+section .bss
+    stack_buffer resb 10000  ; Stack buffer for ELF data
+
+
 section .text
 global _start
 
 _start:
+    ; 1. Allocate stack buffer (r15 points to the buffer)
+    lea r15, [stack_buffer]
+    
+    
     ; Get the file name from arguments (argv[1])
     mov rdi, [rsp + 8]          ; Address of argv[0]
     mov rdi, [rsp + 16]         ; Address of argv[1] (file name)
@@ -25,9 +33,24 @@ _start:
     js file_open_error          ; If negative, jump to error handler
 
     ; File successfully opened; rax holds the file descriptor
-    ; Continue with further processing...
+    
+    
+    ; We want to save the original entry point e_entry  :
+    ; We allocate stack buffer (r15 points to the buffer)
+    lea r15, [stack_buffer]
 
-    ; Exit program gracefully
+    ; Then wead ELF file contents into the stack buffer
+    mov rdi, rax             ; File descriptor (from the open() syscall result)
+    mov rsi, r15             ; Destination buffer (stack buffer)
+    mov rdx, 10000           ; Number of bytes to read
+    mov rax, 0               ; Syscall number for read()
+    syscall
+    
+    
+    
+    
+    
+    ; Exit program
     mov rax, 60                 ; Exit syscall
     xor rdi, rdi                ; Exit code 0
     syscall

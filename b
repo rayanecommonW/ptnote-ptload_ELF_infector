@@ -1,0 +1,817 @@
+#include <elf.h>
+
+/*
+ * ELF dump of 'target1'
+ *     15952 (0x3E50) bytes
+ */
+
+Elf64_Dyn dumpedelf_dyn_0[];
+struct {
+	Elf64_Ehdr ehdr;
+	Elf64_Phdr phdrs[13];
+	Elf64_Shdr shdrs[31];
+	Elf64_Dyn *dyns;
+} dumpedelf_0 = {
+
+.ehdr = {
+	.e_ident = { /* (EI_NIDENT bytes) */
+		/* [0] EI_MAG:        */ 0x7F,'E','L','F',
+		/* [4] EI_CLASS:      */ 2 , /* (ELFCLASS64) */
+		/* [5] EI_DATA:       */ 1 , /* (ELFDATA2LSB) */
+		/* [6] EI_VERSION:    */ 1 , /* (EV_CURRENT) */
+		/* [7] EI_OSABI:      */ 0 , /* (ELFOSABI_NONE) */
+		/* [8] EI_ABIVERSION: */ 0 ,
+		/* [9-15] EI_PAD:     */ 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+	},
+	.e_type      = 3          , /* (ET_DYN) */
+	.e_machine   = 62         , /* (EM_X86_64) */
+	.e_version   = 1          , /* (EV_CURRENT) */
+	.e_entry     = 0x1050     , /* (start address at runtime) */
+	.e_phoff     = 64         , /* (bytes into file) */
+	.e_shoff     = 13968      , /* (bytes into file) */
+	.e_flags     = 0x0        ,
+	.e_ehsize    = 64         , /* (bytes) */
+	.e_phentsize = 56         , /* (bytes) */
+	.e_phnum     = 13         , /* (program headers) */
+	.e_shentsize = 64         , /* (bytes) */
+	.e_shnum     = 31         , /* (section headers) */
+	.e_shstrndx  = 30        
+},
+
+.phdrs = {
+/* Program Header #0 0x40 */
+{
+	.p_type   = 6          , /* [PT_PHDR] */
+	.p_offset = 64         , /* (bytes into file) */
+	.p_vaddr  = 0x40       , /* (virtual addr at runtime) */
+	.p_paddr  = 0x40       , /* (physical addr at runtime) */
+	.p_filesz = 728        , /* (bytes in file) */
+	.p_memsz  = 728        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 8          , /* (min mem alignment in bytes) */
+},
+/* Program Header #1 0x78 */
+{
+	.p_type   = 3          , /* [PT_INTERP] */
+	.p_offset = 792        , /* (bytes into file) */
+	.p_vaddr  = 0x318      , /* (virtual addr at runtime) */
+	.p_paddr  = 0x318      , /* (physical addr at runtime) */
+	.p_filesz = 28         , /* (bytes in file) */
+	.p_memsz  = 28         , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 1          , /* (min mem alignment in bytes) */
+},
+/* Program Header #2 0xB0 */
+{
+	.p_type   = 1          , /* [PT_LOAD] */
+	.p_offset = 0          , /* (bytes into file) */
+	.p_vaddr  = 0x0        , /* (virtual addr at runtime) */
+	.p_paddr  = 0x0        , /* (physical addr at runtime) */
+	.p_filesz = 1560       , /* (bytes in file) */
+	.p_memsz  = 1560       , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 4096       , /* (min mem alignment in bytes) */
+},
+/* Program Header #3 0xE8 */
+{
+	.p_type   = 1          , /* [PT_LOAD] */
+	.p_offset = 4096       , /* (bytes into file) */
+	.p_vaddr  = 0x1000     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x1000     , /* (physical addr at runtime) */
+	.p_filesz = 353        , /* (bytes in file) */
+	.p_memsz  = 353        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x5        , /* PF_R | PF_X */
+	.p_align  = 4096       , /* (min mem alignment in bytes) */
+},
+/* Program Header #4 0x120 */
+{
+	.p_type   = 1          , /* [PT_LOAD] */
+	.p_offset = 8192       , /* (bytes into file) */
+	.p_vaddr  = 0x2000     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x2000     , /* (physical addr at runtime) */
+	.p_filesz = 284        , /* (bytes in file) */
+	.p_memsz  = 284        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 4096       , /* (min mem alignment in bytes) */
+},
+/* Program Header #5 0x158 */
+{
+	.p_type   = 1          , /* [PT_LOAD] */
+	.p_offset = 11728      , /* (bytes into file) */
+	.p_vaddr  = 0x3DD0     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x3DD0     , /* (physical addr at runtime) */
+	.p_filesz = 584        , /* (bytes in file) */
+	.p_memsz  = 592        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x6        , /* PF_R | PF_W */
+	.p_align  = 4096       , /* (min mem alignment in bytes) */
+},
+/* Program Header #6 0x190 */
+{
+	.p_type   = 2          , /* [PT_DYNAMIC] */
+	.p_offset = 11744      , /* (bytes into file) */
+	.p_vaddr  = 0x3DE0     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x3DE0     , /* (physical addr at runtime) */
+	.p_filesz = 480        , /* (bytes in file) */
+	.p_memsz  = 480        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x6        , /* PF_R | PF_W */
+	.p_align  = 8          , /* (min mem alignment in bytes) */
+},
+/* Program Header #7 0x1C8 */
+{
+	.p_type   = 4          , /* [PT_NOTE] */
+	.p_offset = 824        , /* (bytes into file) */
+	.p_vaddr  = 0x338      , /* (virtual addr at runtime) */
+	.p_paddr  = 0x338      , /* (physical addr at runtime) */
+	.p_filesz = 32         , /* (bytes in file) */
+	.p_memsz  = 32         , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 8          , /* (min mem alignment in bytes) */
+
+	/* note section dump:
+	 * Elf64_Nhdr note0 = {
+	 * 	.n_namesz = 4, (bytes) [GNU]
+	 * 	.n_descsz = 16, (bytes) [ 02 80 00 C0 04 00 00 00 01 00 00 00 00 00 00 00 ]
+	 * 	.n_type   = 5, [UNKNOWN_TYPE]
+	 * };
+	 */
+},
+/* Program Header #8 0x200 */
+{
+	.p_type   = 4          , /* [PT_NOTE] */
+	.p_offset = 856        , /* (bytes into file) */
+	.p_vaddr  = 0x358      , /* (virtual addr at runtime) */
+	.p_paddr  = 0x358      , /* (physical addr at runtime) */
+	.p_filesz = 68         , /* (bytes in file) */
+	.p_memsz  = 68         , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 4          , /* (min mem alignment in bytes) */
+
+	/* note section dump:
+	 * Elf64_Nhdr note0 = {
+	 * 	.n_namesz = 4, (bytes) [GNU]
+	 * 	.n_descsz = 20, (bytes) [ 9B CC AB 09 99 5F 53 E9 04 6E B1 FF 59 C6 7C 06 03 F7 06 52 ]
+	 * 	.n_type   = 3, [NT_GNU_BUILD_ID]
+	 * };
+	 * Elf64_Nhdr note21 = {
+	 * 	.n_namesz = 4, (bytes) [GNU]
+	 * 	.n_descsz = 16, (bytes) [ 00 00 00 00 03 00 00 00 02 00 00 00 00 00 00 00 ]
+	 * 	.n_type   = 1, [NT_GNU_ABI_TAG]
+	 * };
+	 */
+},
+/* Program Header #9 0x238 */
+{
+	.p_type   = 1685382483 , /* [UNKNOWN_TYPE] */
+	.p_offset = 824        , /* (bytes into file) */
+	.p_vaddr  = 0x338      , /* (virtual addr at runtime) */
+	.p_paddr  = 0x338      , /* (physical addr at runtime) */
+	.p_filesz = 32         , /* (bytes in file) */
+	.p_memsz  = 32         , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 8          , /* (min mem alignment in bytes) */
+},
+/* Program Header #10 0x270 */
+{
+	.p_type   = 1685382480 , /* [PT_GNU_EH_FRAME] */
+	.p_offset = 8256       , /* (bytes into file) */
+	.p_vaddr  = 0x2040     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x2040     , /* (physical addr at runtime) */
+	.p_filesz = 44         , /* (bytes in file) */
+	.p_memsz  = 44         , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 4          , /* (min mem alignment in bytes) */
+},
+/* Program Header #11 0x2A8 */
+{
+	.p_type   = 1685382481 , /* [PT_GNU_STACK] */
+	.p_offset = 0          , /* (bytes into file) */
+	.p_vaddr  = 0x0        , /* (virtual addr at runtime) */
+	.p_paddr  = 0x0        , /* (physical addr at runtime) */
+	.p_filesz = 0          , /* (bytes in file) */
+	.p_memsz  = 0          , /* (bytes in mem at runtime) */
+	.p_flags  = 0x6        , /* PF_R | PF_W */
+	.p_align  = 16         , /* (min mem alignment in bytes) */
+},
+/* Program Header #12 0x2E0 */
+{
+	.p_type   = 1685382482 , /* [PT_GNU_RELRO] */
+	.p_offset = 11728      , /* (bytes into file) */
+	.p_vaddr  = 0x3DD0     , /* (virtual addr at runtime) */
+	.p_paddr  = 0x3DD0     , /* (physical addr at runtime) */
+	.p_filesz = 560        , /* (bytes in file) */
+	.p_memsz  = 560        , /* (bytes in mem at runtime) */
+	.p_flags  = 0x4        , /* PF_R */
+	.p_align  = 1          , /* (min mem alignment in bytes) */
+},
+},
+
+.shdrs = {
+/* Section Header #0 '' 0x3690 */
+{
+	.sh_name      = 0          ,
+	.sh_type      = 0          , /* [SHT_NULL] */
+	.sh_flags     = 0          ,
+	.sh_addr      = 0x0        ,
+	.sh_offset    = 0          , /* (bytes) */
+	.sh_size      = 0          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 0          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #1 '.interp' 0x36D0 */
+{
+	.sh_name      = 27         ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x318      ,
+	.sh_offset    = 792        , /* (bytes) */
+	.sh_size      = 28         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #2 '.note.gnu.property' 0x3710 */
+{
+	.sh_name      = 35         ,
+	.sh_type      = 7          , /* [SHT_NOTE] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x338      ,
+	.sh_offset    = 824        , /* (bytes) */
+	.sh_size      = 32         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #3 '.note.gnu.build-id' 0x3750 */
+{
+	.sh_name      = 54         ,
+	.sh_type      = 7          , /* [SHT_NOTE] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x358      ,
+	.sh_offset    = 856        , /* (bytes) */
+	.sh_size      = 36         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 4          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #4 '.note.ABI-tag' 0x3790 */
+{
+	.sh_name      = 73         ,
+	.sh_type      = 7          , /* [SHT_NOTE] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x37C      ,
+	.sh_offset    = 892        , /* (bytes) */
+	.sh_size      = 32         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 4          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #5 '.gnu.hash' 0x37D0 */
+{
+	.sh_name      = 87         ,
+	.sh_type      = 1879048182 , /* [SHT_GNU_HASH] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x3A0      ,
+	.sh_offset    = 928        , /* (bytes) */
+	.sh_size      = 36         , /* (bytes) */
+	.sh_link      = 6          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #6 '.dynsym' 0x3810 */
+{
+	.sh_name      = 97         ,
+	.sh_type      = 11         , /* [SHT_DYNSYM] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x3C8      ,
+	.sh_offset    = 968        , /* (bytes) */
+	.sh_size      = 168        , /* (bytes) */
+	.sh_link      = 7          ,
+	.sh_info      = 1          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 24        
+},
+/* Section Header #7 '.dynstr' 0x3850 */
+{
+	.sh_name      = 105        ,
+	.sh_type      = 3          , /* [SHT_STRTAB] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x470      ,
+	.sh_offset    = 1136       , /* (bytes) */
+	.sh_size      = 143        , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #8 '.gnu.version' 0x3890 */
+{
+	.sh_name      = 113        ,
+	.sh_type      = 1879048191 , /* [SHT_GNU_versym] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x500      ,
+	.sh_offset    = 1280       , /* (bytes) */
+	.sh_size      = 14         , /* (bytes) */
+	.sh_link      = 6          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 2          ,
+	.sh_entsize   = 2         
+},
+/* Section Header #9 '.gnu.version_r' 0x38D0 */
+{
+	.sh_name      = 126        ,
+	.sh_type      = 1879048190 , /* [SHT_GNU_verneed] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x510      ,
+	.sh_offset    = 1296       , /* (bytes) */
+	.sh_size      = 48         , /* (bytes) */
+	.sh_link      = 7          ,
+	.sh_info      = 1          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #10 '.rela.dyn' 0x3910 */
+{
+	.sh_name      = 141        ,
+	.sh_type      = 4          , /* [SHT_RELA] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x540      ,
+	.sh_offset    = 1344       , /* (bytes) */
+	.sh_size      = 192        , /* (bytes) */
+	.sh_link      = 6          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 24        
+},
+/* Section Header #11 '.rela.plt' 0x3950 */
+{
+	.sh_name      = 151        ,
+	.sh_type      = 4          , /* [SHT_RELA] */
+	.sh_flags     = 66         ,
+	.sh_addr      = 0x600      ,
+	.sh_offset    = 1536       , /* (bytes) */
+	.sh_size      = 24         , /* (bytes) */
+	.sh_link      = 6          ,
+	.sh_info      = 24         ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 24        
+},
+/* Section Header #12 '.init' 0x3990 */
+{
+	.sh_name      = 161        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 6          ,
+	.sh_addr      = 0x1000     ,
+	.sh_offset    = 4096       , /* (bytes) */
+	.sh_size      = 23         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 4          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #13 '.plt' 0x39D0 */
+{
+	.sh_name      = 156        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 6          ,
+	.sh_addr      = 0x1020     ,
+	.sh_offset    = 4128       , /* (bytes) */
+	.sh_size      = 32         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 16         ,
+	.sh_entsize   = 16        
+},
+/* Section Header #14 '.plt.got' 0x3A10 */
+{
+	.sh_name      = 167        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 6          ,
+	.sh_addr      = 0x1040     ,
+	.sh_offset    = 4160       , /* (bytes) */
+	.sh_size      = 8          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 8         
+},
+/* Section Header #15 '.text' 0x3A50 */
+{
+	.sh_name      = 176        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 6          ,
+	.sh_addr      = 0x1050     ,
+	.sh_offset    = 4176       , /* (bytes) */
+	.sh_size      = 264        , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 16         ,
+	.sh_entsize   = 0         
+},
+/* Section Header #16 '.fini' 0x3A90 */
+{
+	.sh_name      = 182        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 6          ,
+	.sh_addr      = 0x1158     ,
+	.sh_offset    = 4440       , /* (bytes) */
+	.sh_size      = 9          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 4          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #17 '.rodata' 0x3AD0 */
+{
+	.sh_name      = 188        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x2000     ,
+	.sh_offset    = 8192       , /* (bytes) */
+	.sh_size      = 63         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #18 '.eh_frame_hdr' 0x3B10 */
+{
+	.sh_name      = 196        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x2040     ,
+	.sh_offset    = 8256       , /* (bytes) */
+	.sh_size      = 44         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 4          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #19 '.eh_frame' 0x3B50 */
+{
+	.sh_name      = 210        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 2          ,
+	.sh_addr      = 0x2070     ,
+	.sh_offset    = 8304       , /* (bytes) */
+	.sh_size      = 172        , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #20 '.init_array' 0x3B90 */
+{
+	.sh_name      = 220        ,
+	.sh_type      = 14         , /* [SHT_INIT_ARRAY] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x3DD0     ,
+	.sh_offset    = 11728      , /* (bytes) */
+	.sh_size      = 8          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 8         
+},
+/* Section Header #21 '.fini_array' 0x3BD0 */
+{
+	.sh_name      = 232        ,
+	.sh_type      = 15         , /* [SHT_FINI_ARRAY] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x3DD8     ,
+	.sh_offset    = 11736      , /* (bytes) */
+	.sh_size      = 8          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 8         
+},
+/* Section Header #22 '.dynamic' 0x3C10 */
+{
+	.sh_name      = 244        ,
+	.sh_type      = 6          , /* [SHT_DYNAMIC] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x3DE0     ,
+	.sh_offset    = 11744      , /* (bytes) */
+	.sh_size      = 480        , /* (bytes) */
+	.sh_link      = 7          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 16        
+},
+/* Section Header #23 '.got' 0x3C50 */
+{
+	.sh_name      = 171        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x3FC0     ,
+	.sh_offset    = 12224      , /* (bytes) */
+	.sh_size      = 40         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 8         
+},
+/* Section Header #24 '.got.plt' 0x3C90 */
+{
+	.sh_name      = 253        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x3FE8     ,
+	.sh_offset    = 12264      , /* (bytes) */
+	.sh_size      = 32         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 8         
+},
+/* Section Header #25 '.data' 0x3CD0 */
+{
+	.sh_name      = 262        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x4008     ,
+	.sh_offset    = 12296      , /* (bytes) */
+	.sh_size      = 16         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #26 '.bss' 0x3D10 */
+{
+	.sh_name      = 268        ,
+	.sh_type      = 8          , /* [SHT_NOBITS] */
+	.sh_flags     = 3          ,
+	.sh_addr      = 0x4018     ,
+	.sh_offset    = 12312      , /* (bytes) */
+	.sh_size      = 8          , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #27 '.comment' 0x3D50 */
+{
+	.sh_name      = 273        ,
+	.sh_type      = 1          , /* [SHT_PROGBITS] */
+	.sh_flags     = 48         ,
+	.sh_addr      = 0x0        ,
+	.sh_offset    = 12312      , /* (bytes) */
+	.sh_size      = 30         , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 1         
+},
+/* Section Header #28 '.symtab' 0x3D90 */
+{
+	.sh_name      = 1          ,
+	.sh_type      = 2          , /* [SHT_SYMTAB] */
+	.sh_flags     = 0          ,
+	.sh_addr      = 0x0        ,
+	.sh_offset    = 12344      , /* (bytes) */
+	.sh_size      = 864        , /* (bytes) */
+	.sh_link      = 29         ,
+	.sh_info      = 18         ,
+	.sh_addralign = 8          ,
+	.sh_entsize   = 24        
+},
+/* Section Header #29 '.strtab' 0x3DD0 */
+{
+	.sh_name      = 9          ,
+	.sh_type      = 3          , /* [SHT_STRTAB] */
+	.sh_flags     = 0          ,
+	.sh_addr      = 0x0        ,
+	.sh_offset    = 13208      , /* (bytes) */
+	.sh_size      = 478        , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 0         
+},
+/* Section Header #30 '.shstrtab' 0x3E10 */
+{
+	.sh_name      = 17         ,
+	.sh_type      = 3          , /* [SHT_STRTAB] */
+	.sh_flags     = 0          ,
+	.sh_addr      = 0x0        ,
+	.sh_offset    = 13686      , /* (bytes) */
+	.sh_size      = 282        , /* (bytes) */
+	.sh_link      = 0          ,
+	.sh_info      = 0          ,
+	.sh_addralign = 1          ,
+	.sh_entsize   = 0         
+},
+},
+
+.dyns = dumpedelf_dyn_0,
+};
+Elf64_Dyn dumpedelf_dyn_0[] = {
+/* Dynamic tag #0 'DT_NEEDED' 0x2DE0 */
+{
+	.d_tag     = 0x1        ,
+	.d_un      = {
+		.d_val = 0x29       ,
+		.d_ptr = 0x29       ,
+	},
+},
+/* Dynamic tag #1 'DT_INIT' 0x2DF0 */
+{
+	.d_tag     = 0xC        ,
+	.d_un      = {
+		.d_val = 0x1000     ,
+		.d_ptr = 0x1000     ,
+	},
+},
+/* Dynamic tag #2 'DT_FINI' 0x2E00 */
+{
+	.d_tag     = 0xD        ,
+	.d_un      = {
+		.d_val = 0x1158     ,
+		.d_ptr = 0x1158     ,
+	},
+},
+/* Dynamic tag #3 'DT_INIT_ARRAY' 0x2E10 */
+{
+	.d_tag     = 0x19       ,
+	.d_un      = {
+		.d_val = 0x3DD0     ,
+		.d_ptr = 0x3DD0     ,
+	},
+},
+/* Dynamic tag #4 'DT_INIT_ARRAYSZ' 0x2E20 */
+{
+	.d_tag     = 0x1B       ,
+	.d_un      = {
+		.d_val = 0x8        ,
+		.d_ptr = 0x8        ,
+	},
+},
+/* Dynamic tag #5 'DT_FINI_ARRAY' 0x2E30 */
+{
+	.d_tag     = 0x1A       ,
+	.d_un      = {
+		.d_val = 0x3DD8     ,
+		.d_ptr = 0x3DD8     ,
+	},
+},
+/* Dynamic tag #6 'DT_FINI_ARRAYSZ' 0x2E40 */
+{
+	.d_tag     = 0x1C       ,
+	.d_un      = {
+		.d_val = 0x8        ,
+		.d_ptr = 0x8        ,
+	},
+},
+/* Dynamic tag #7 'DT_GNU_HASH' 0x2E50 */
+{
+	.d_tag     = 0x6FFFFEF5 ,
+	.d_un      = {
+		.d_val = 0x3A0      ,
+		.d_ptr = 0x3A0      ,
+	},
+},
+/* Dynamic tag #8 'DT_STRTAB' 0x2E60 */
+{
+	.d_tag     = 0x5        ,
+	.d_un      = {
+		.d_val = 0x470      ,
+		.d_ptr = 0x470      ,
+	},
+},
+/* Dynamic tag #9 'DT_SYMTAB' 0x2E70 */
+{
+	.d_tag     = 0x6        ,
+	.d_un      = {
+		.d_val = 0x3C8      ,
+		.d_ptr = 0x3C8      ,
+	},
+},
+/* Dynamic tag #10 'DT_STRSZ' 0x2E80 */
+{
+	.d_tag     = 0xA        ,
+	.d_un      = {
+		.d_val = 0x8F       ,
+		.d_ptr = 0x8F       ,
+	},
+},
+/* Dynamic tag #11 'DT_SYMENT' 0x2E90 */
+{
+	.d_tag     = 0xB        ,
+	.d_un      = {
+		.d_val = 0x18       ,
+		.d_ptr = 0x18       ,
+	},
+},
+/* Dynamic tag #12 'DT_DEBUG' 0x2EA0 */
+{
+	.d_tag     = 0x15       ,
+	.d_un      = {
+		.d_val = 0x0        ,
+		.d_ptr = 0x0        ,
+	},
+},
+/* Dynamic tag #13 'DT_PLTGOT' 0x2EB0 */
+{
+	.d_tag     = 0x3        ,
+	.d_un      = {
+		.d_val = 0x3FE8     ,
+		.d_ptr = 0x3FE8     ,
+	},
+},
+/* Dynamic tag #14 'DT_PLTRELSZ' 0x2EC0 */
+{
+	.d_tag     = 0x2        ,
+	.d_un      = {
+		.d_val = 0x18       ,
+		.d_ptr = 0x18       ,
+	},
+},
+/* Dynamic tag #15 'DT_PLTREL' 0x2ED0 */
+{
+	.d_tag     = 0x14       ,
+	.d_un      = {
+		.d_val = 0x7        ,
+		.d_ptr = 0x7        ,
+	},
+},
+/* Dynamic tag #16 'DT_JMPREL' 0x2EE0 */
+{
+	.d_tag     = 0x17       ,
+	.d_un      = {
+		.d_val = 0x600      ,
+		.d_ptr = 0x600      ,
+	},
+},
+/* Dynamic tag #17 'DT_RELA' 0x2EF0 */
+{
+	.d_tag     = 0x7        ,
+	.d_un      = {
+		.d_val = 0x540      ,
+		.d_ptr = 0x540      ,
+	},
+},
+/* Dynamic tag #18 'DT_RELASZ' 0x2F00 */
+{
+	.d_tag     = 0x8        ,
+	.d_un      = {
+		.d_val = 0xC0       ,
+		.d_ptr = 0xC0       ,
+	},
+},
+/* Dynamic tag #19 'DT_RELAENT' 0x2F10 */
+{
+	.d_tag     = 0x9        ,
+	.d_un      = {
+		.d_val = 0x18       ,
+		.d_ptr = 0x18       ,
+	},
+},
+/* Dynamic tag #20 'DT_FLAGS_1' 0x2F20 */
+{
+	.d_tag     = 0x6FFFFFFB ,
+	.d_un      = {
+		.d_val = 0x8000000  ,
+		.d_ptr = 0x8000000  ,
+	},
+},
+/* Dynamic tag #21 'DT_VERNEED' 0x2F30 */
+{
+	.d_tag     = 0x6FFFFFFE ,
+	.d_un      = {
+		.d_val = 0x510      ,
+		.d_ptr = 0x510      ,
+	},
+},
+/* Dynamic tag #22 'DT_VERNEEDNUM' 0x2F40 */
+{
+	.d_tag     = 0x6FFFFFFF ,
+	.d_un      = {
+		.d_val = 0x1        ,
+		.d_ptr = 0x1        ,
+	},
+},
+/* Dynamic tag #23 'DT_VERSYM' 0x2F50 */
+{
+	.d_tag     = 0x6FFFFFF0 ,
+	.d_un      = {
+		.d_val = 0x500      ,
+		.d_ptr = 0x500      ,
+	},
+},
+/* Dynamic tag #24 'DT_RELACOUNT' 0x2F60 */
+{
+	.d_tag     = 0x6FFFFFF9 ,
+	.d_un      = {
+		.d_val = 0x3        ,
+		.d_ptr = 0x3        ,
+	},
+},
+};

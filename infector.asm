@@ -7,8 +7,6 @@ section .data align=8
     infect_error_len equ $ - infect_error_msg
     read_error_msg db "Error reading ELF file", 0xA
     read_error_len equ $ - read_error_msg
-    file_open_error_msg db "Error opening file", 0xA  ; Error message
-    file_open_error_len equ $ - file_open_error_msg
 
 section .bss
     stack_buffer resb 10000  ; Stack buffer for ELF data

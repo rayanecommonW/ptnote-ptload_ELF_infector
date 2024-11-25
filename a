@@ -118,22 +118,14 @@ struct {
 },
 /* Program Header #7 0x1C8 */
 {
-	.p_type   = 4          , /* [PT_NOTE] */
+	.p_type   = 1          , /* [PT_LOAD] */
 	.p_offset = 824        , /* (bytes into file) */
-	.p_vaddr  = 0x338      , /* (virtual addr at runtime) */
-	.p_paddr  = 0x338      , /* (physical addr at runtime) */
+	.p_vaddr  = 0x3800400C000000 , /* (virtual addr at runtime) */
+	.p_paddr  = 0x3800400C000000 , /* (physical addr at runtime) */
 	.p_filesz = 32         , /* (bytes in file) */
 	.p_memsz  = 32         , /* (bytes in mem at runtime) */
-	.p_flags  = 0x4        , /* PF_R */
+	.p_flags  = 0x5        , /* PF_R | PF_X */
 	.p_align  = 8          , /* (min mem alignment in bytes) */
-
-	/* note section dump:
-	 * Elf64_Nhdr note0 = {
-	 * 	.n_namesz = 4, (bytes) [GNU]
-	 * 	.n_descsz = 16, (bytes) [ 02 80 00 C0 04 00 00 00 01 00 00 00 00 00 00 00 ]
-	 * 	.n_type   = 5, [UNKNOWN_TYPE]
-	 * };
-	 */
 },
 /* Program Header #8 0x200 */
 {

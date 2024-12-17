@@ -8,6 +8,7 @@ section .data
 section .text
 global _start
 
+
 _start:
     ; -------- Parse command line arguments --------
     mov rdi, [rsp + 16]       ; argv[1] (path to ELF file)

